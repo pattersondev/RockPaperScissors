@@ -41,11 +41,11 @@ async function compareChoice() {
         result === true;
     }
 
-    if (result === true) {
+    if (result) {
         console.log("I win!");
     }
 
-    if (result === false) {
+    if (!result) {
         console.log("You win!")
     }
 }
