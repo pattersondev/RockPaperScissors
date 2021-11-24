@@ -10,9 +10,10 @@ const options = [rock, paper, scissors];
 
 async function setUserChoice() {
     userChoice = prompt("Please choose rock, paper, or scissors\n");
-    if (!userChoice.toLowerCase() === rock || !userChoice.toLowerCase() === scissors 
-        || !userChoice.toLowerCase() === paper) {
-        userChoice = prompt("Please choose rock, paper, or scissors\n");
+    if (userChoice.toLowerCase() !== rock || userChoice.toLowerCase() !== scissors 
+        || userChoice.toLowerCase() !== paper) {
+        console.log("You didn't choose rock, paper or scissors, I don't want to play anymore");
+        throw new Error();
     }
     console.log(`You chose ${userChoice}`);
 }
