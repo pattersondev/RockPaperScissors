@@ -7,7 +7,6 @@ let scissors = "scissors";
 let paper = "paper";
 let result = false;
 const options = [rock, paper, scissors];
-console.log(`You chose ${userChoice}`);
 
 async function setUserChoice() {
     userChoice = prompt("Please choose rock, paper, or scissors\n");
