@@ -9,7 +9,7 @@ let result = false;
 const options = [rock, paper, scissors];
 console.log(`You chose ${userChoice}`);
 
-function setUserChoice() {
+async function setUserChoice() {
     userChoice = prompt("Please choose rock, paper, or scissors\n");
     if (!userChoice.toLowerCase() === rock || !userChoice.toLowerCase() === scissors 
         || !userChoice.toLowerCase() === paper) {
@@ -18,13 +18,13 @@ function setUserChoice() {
     console.log(`You chose ${userChoice}`);
 }
 
-function setComputerChoice() {
+async function setComputerChoice() {
     min = Math.ceil(0);
     max = Math.floor(2);
     computerChoice = options[Math.floor(Math.random() * (max - min + 1)) + min];
 }
 
-function compareChoice() {
+async function compareChoice() {
     if (computerChoice === userChoice.toLowerCase()) {
         console.log("We tied!")
     }
@@ -50,10 +50,10 @@ function compareChoice() {
     }
 }
 
-function play() {
-    setUserChoice();
-    setComputerChoice();
-    compareChoice();
+async function play() {
+    await setUserChoice();
+    await setComputerChoice();
+    await compareChoice();
 }
 
 play();
