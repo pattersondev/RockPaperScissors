@@ -10,11 +10,11 @@ const options = [rock, paper, scissors];
 
 async function setUserChoice() {
     userChoice = prompt("Please choose rock, paper, or scissors");
-    if (userChoice !== rock || userChoice !== paper || userChoice !== scissors) {
-        console.log("Invalid input");
+    if (!options.includes(userChoice)) {
+        console.log("invalid input")
         throw new Error();
     }
-    await console.log(`You chose ${userChoice}`);
+    console.log(`You chose ${userChoice}`);
 }
 
 async function setComputerChoice() {
