@@ -5,47 +5,48 @@ let userChoice = "";
 let rock = "rock";
 let scissors = "scissors";
 let paper = "paper";
-let result = false;
+let result = "user";
 const options = [rock, paper, scissors];
 
 async function setUserChoice() {
-    userChoice = prompt("Please choose rock, paper, or scissors\n");
-    if (userChoice.toLowerCase() !== rock || userChoice.toLowerCase() !== scissors 
-        || userChoice.toLowerCase() !== paper) {
-        console.log("You didn't choose rock, paper or scissors, I don't want to play anymore");
+    userChoice = prompt("Please choose rock, paper, or scissors");
+    if (userChoice !== rock || userChoice !== paper || userChoice !== scissors) {
+        console.log("Invalid input");
         throw new Error();
     }
-    console.log(`You chose ${userChoice}`);
+    await console.log(`You chose ${userChoice}`);
 }
 
 async function setComputerChoice() {
     min = Math.ceil(0);
     max = Math.floor(2);
     computerChoice = options[Math.floor(Math.random() * (max - min + 1)) + min];
+    console.log("I choose " + computerChoice);
 }
 
 async function compareChoice() {
     if (computerChoice === userChoice.toLowerCase()) {
         console.log("We tied!")
+        result = null;
     }
 
     if (computerChoice === rock && userChoice.toLowerCase() === scissors) {
-        result = true;
+        result = "computer";
     }
 
     if (computerChoice === scissors && userChoice.toLowerCase() === paper) {
-        result = true;
+        result = "computer";
     }
 
     if (computerChoice === paper && userChoice.toLowerCase() === rock) {
-        result === true;
+        result = "computer";
     }
 
-    if (result) {
+    if (result === "computer") {
         console.log("I win!");
     }
 
-    if (!result) {
+    if (result === "user") {
         console.log("You win!")
     }
 }
